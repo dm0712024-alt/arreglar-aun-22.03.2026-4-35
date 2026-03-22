@@ -71,8 +71,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Settings Dropdown */}
+          {/* Settings */}
           <SettingsDropdown scrolled={scrolled} />
+
+          {/* Profile */}
+          <ProfileDrawer scrolled={scrolled} />
 
           {/* Cart Button */}
           <button
