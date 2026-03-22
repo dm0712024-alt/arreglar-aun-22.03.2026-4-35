@@ -44,7 +44,7 @@ const About = () => {
               <p className="leading-relaxed">{t("about.p2")}</p>
               <p className="leading-relaxed">{t("about.p3")}</p>
             </div>
-            <div className="mt-8 flex gap-12 rounded-xl border border-border bg-card/50 p-5 shadow-card-3d backdrop-blur-sm">
+            <div className="mt-8 flex flex-wrap gap-6 sm:gap-12 rounded-xl border border-border bg-card/50 p-5 shadow-card-3d backdrop-blur-sm">
               <div>
                 <p className="font-serif text-3xl font-bold text-gradient-gold">100%</p>
                 <p className="mt-1 text-sm text-muted-foreground">{t("about.quality")}</p>

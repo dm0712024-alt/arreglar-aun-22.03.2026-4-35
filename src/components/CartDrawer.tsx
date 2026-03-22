@@ -133,10 +133,10 @@ const CartDrawer = () => {
                                   <span className="text-[11px] text-muted-foreground/60">{item.product.category}</span>
                                 </div>
                               </div>
-                              <button
-                                onClick={() => removeItem(item.product.id)}
-                                className="flex-shrink-0 text-muted-foreground/30 transition-colors hover:text-destructive opacity-0 group-hover:opacity-100"
-                                aria-label="Eliminar"
+                                <button
+137:                                 onClick={() => removeItem(item.product.id)}
+138:                                 className="flex-shrink-0 text-muted-foreground/30 transition-colors hover:text-destructive sm:opacity-0 sm:group-hover:opacity-100"
+139:                                 aria-label="Eliminar"
                               >
                                 <Trash2 className="h-4 w-4" />
                               </button>
