@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, X, LogOut, Phone, AtSign, Mail, ShoppingBag, Calendar } from "lucide-react";
 import { useUser } from "@/context/UserContext";
