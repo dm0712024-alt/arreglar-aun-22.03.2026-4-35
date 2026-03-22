@@ -9,6 +9,7 @@ import { UserProvider } from "@/context/UserContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import AdminHemerza from "./pages/AdminHemerza";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
               <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/admin-hemerza" element={<AdminHemerza />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </BrowserRouter>
