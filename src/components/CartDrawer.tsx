@@ -5,25 +5,21 @@ import { useCart } from "@/context/CartContext";
 import { useUser } from "@/context/UserContext";
 import { useLanguage } from "@/context/LanguageContext";
 import OrderSummaryModal from "@/components/OrderSummaryModal";
-
 const CartDrawer = () => {
   const { items, isOpen, setIsOpen, removeItem, updateQuantity, totalItems, totalPrice, clearCart } = useCart();
   const { user, requireLogin } = useUser();
   const { t } = useLanguage();
   const [showSummary, setShowSummary] = useState(false);
-
   const handleProceedToOrder = () => {
     requireLogin(() => {
       setShowSummary(true);
     });
   };
-
   const handleOrderComplete = () => {
     setShowSummary(false);
     clearCart();
     setIsOpen(false);
   };
-
   return (
     <>
       <AnimatePresence>
@@ -38,7 +34,6 @@ const CartDrawer = () => {
               onClick={() => setIsOpen(false)}
               className="fixed inset-0 z-50 bg-foreground/60 backdrop-blur-md"
             />
-
             {/* Full-screen cart panel */}
             <motion.div
               initial={{ clipPath: "circle(0% at calc(100% - 40px) 28px)" }}
@@ -75,7 +70,6 @@ const CartDrawer = () => {
                   <X className="h-5 w-5" />
                 </button>
               </motion.div>
-
               {/* Content area */}
               <div className="flex-1 overflow-y-auto px-6 py-6 md:px-12">
                 {items.length === 0 ? (
@@ -133,10 +127,10 @@ const CartDrawer = () => {
                                   <span className="text-[11px] text-muted-foreground/60">{item.product.category}</span>
                                 </div>
                               </div>
-                                <button
-137:                                 onClick={() => removeItem(item.product.id)}
-138:                                 className="flex-shrink-0 text-muted-foreground/30 transition-colors hover:text-destructive sm:opacity-0 sm:group-hover:opacity-100"
-139:                                 aria-label="Eliminar"
+                              <button
+                                onClick={() => removeItem(item.product.id)}
+                                className="flex-shrink-0 text-muted-foreground/30 transition-colors hover:text-destructive sm:opacity-0 sm:group-hover:opacity-100"
+                                aria-label="Eliminar"
                               >
                                 <Trash2 className="h-4 w-4" />
                               </button>
@@ -168,7 +162,6 @@ const CartDrawer = () => {
                   </div>
                 )}
               </div>
-
               {/* Footer */}
               {items.length > 0 && (
                 <motion.div
@@ -192,7 +185,6 @@ const CartDrawer = () => {
                         <span className="font-serif text-2xl font-bold text-foreground">${totalPrice} USD</span>
                       </div>
                     </div>
-
                     <motion.button
                       whileHover={{ y: -1 }}
                       whileTap={{ scale: 0.98 }}
@@ -202,7 +194,6 @@ const CartDrawer = () => {
                       {t("cart.continue")}
                       <ArrowRight className="h-4 w-4" />
                     </motion.button>
-
                     <button
                       onClick={clearCart}
                       className="mt-3 w-full text-center text-xs text-muted-foreground/50 hover:text-destructive transition-colors"
@@ -216,7 +207,6 @@ const CartDrawer = () => {
           </>
         )}
       </AnimatePresence>
-
       {user && (
         <OrderSummaryModal
           isOpen={showSummary}
@@ -230,5 +220,4 @@ const CartDrawer = () => {
     </>
   );
 };
-
 export default CartDrawer;
