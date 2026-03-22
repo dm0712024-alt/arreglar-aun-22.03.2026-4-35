@@ -4,6 +4,7 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
 import SettingsDropdown from "@/components/SettingsDropdown";
+import ProfileDrawer from "@/components/ProfileDrawer";
 
 const navLinks = [
   { labelKey: "nav.collections", href: "#collections" },
@@ -70,8 +71,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Settings Dropdown */}
+          {/* Settings */}
           <SettingsDropdown scrolled={scrolled} />
+
+          {/* Profile */}
+          <ProfileDrawer scrolled={scrolled} />
 
           {/* Cart Button */}
           <button
