@@ -304,14 +304,14 @@ const OrderSummaryModal = ({ isOpen, onClose, items, totalPrice, user, onComplet
                         <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
                           {language === "es" ? "Metodo de pago" : "Payment method"}
                         </p>
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
                           {paymentOptions.map((opt) => {
                             const Icon = opt.icon;
                             return (
                               <button
                                 key={opt.value}
                                 onClick={() => handleSelectPayment(opt.value)}
-                                className="relative flex flex-col items-center gap-1.5 rounded-xl border-2 border-border p-3 transition-all hover:border-accent hover:bg-accent/5 active:scale-95"
+                                className="relative flex items-center gap-3 rounded-xl border-2 border-border p-3 transition-all hover:border-accent hover:bg-accent/5 active:scale-95 sm:flex-col sm:items-center sm:gap-1.5"
                               >
                                 <Icon className="h-5 w-5 text-muted-foreground" />
                                 <span className="text-xs font-semibold text-foreground">
