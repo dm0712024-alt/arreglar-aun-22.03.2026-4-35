@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, X, LogOut, Phone, AtSign, Mail, ShoppingBag, Calendar } from "lucide-react";
 import { useUser } from "@/context/UserContext";
@@ -12,6 +12,11 @@ const ProfileDrawer = ({ scrolled }: ProfileDrawerProps) => {
   const [open, setOpen] = useState(false);
   const { user, clearUser, requireLogin } = useUser();
   const { language } = useLanguage();
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   const handleOpen = () => {
     if (user) {

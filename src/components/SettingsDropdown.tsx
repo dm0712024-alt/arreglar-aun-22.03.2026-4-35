@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Settings, Sun, Moon, Globe, X } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
@@ -12,6 +12,11 @@ const SettingsDropdown = ({ scrolled }: SettingsDropdownProps) => {
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage } = useLanguage();
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
     <>
