@@ -13,6 +13,11 @@ const ProfileDrawer = ({ scrolled }: ProfileDrawerProps) => {
   const { user, clearUser, requireLogin } = useUser();
   const { language } = useLanguage();
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   const handleOpen = () => {
     if (user) {
       setOpen(true);

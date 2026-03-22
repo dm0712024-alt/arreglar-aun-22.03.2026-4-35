@@ -13,6 +13,11 @@ const SettingsDropdown = ({ scrolled }: SettingsDropdownProps) => {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage } = useLanguage();
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <>
       <button
