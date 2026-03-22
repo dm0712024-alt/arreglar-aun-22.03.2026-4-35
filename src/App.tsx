@@ -9,6 +9,7 @@ import { UserProvider } from "@/context/UserContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import AdminHemerza from "./pages/AdminHemerza";
 
 const queryClient = new QueryClient();
 
