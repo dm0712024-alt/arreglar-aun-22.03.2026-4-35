@@ -4,6 +4,7 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useLanguage } from "@/context/LanguageContext";
 import SettingsDropdown from "@/components/SettingsDropdown";
+import ProfileDrawer from "@/components/ProfileDrawer";
 
 const navLinks = [
   { labelKey: "nav.collections", href: "#collections" },
