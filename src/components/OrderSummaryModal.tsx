@@ -164,34 +164,6 @@ const OrderSummaryModal = ({ isOpen, onClose, items, totalPrice, user, onComplet
     const { error: itemsErr } = await db.from("order_items").insert(orderItems);
     if (itemsErr) throw new Error("Error creating order items");
 
-    const paymentLabel = selectedPayment
-      ? paymentOptions.find(p => p.value === selectedPayment)?.[language === "es" ? "labelEs" : "labelEn"] ?? ""
-      : "";
-
-    try {
-      await supabase.functions.invoke("send-order-email", {
-        body: {
-          to_email: user.email || undefined,
-          customer_name: user.name,
-          customer_phone: user.phone,
-          customer_instagram: user.instagram,
-          order_number: orderNumber,
-          order_date: orderDate,
-          items: items.map(i => ({
-            product_name: i.product.name,
-            size: i.selectedSize,
-            quantity: i.quantity,
-            price: i.product.price,
-            product_image: i.product.image,
-          })),
-          total: totalPrice,
-          payment_method: selectedPayment,
-          payment_label: paymentLabel,
-        },
-      });
-    } catch (emailErr) {
-      console.error("Email notification failed:", emailErr);
-    }
   };
 
   const handleSendOrder = async (channel: "whatsapp" | "instagram") => {
